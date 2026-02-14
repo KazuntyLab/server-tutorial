@@ -8,15 +8,30 @@ enum class Direction
     Right
 };
 
-class MySubscriber
+class SwipeListener
 {
 public:
-    std::string name;
-    MySubscriber(std::string n) : name(n) {}
+    // 純粋仮想関数
+    virtual void onNotify(Direction dir) = 0;
+    virtual ~SwipeListener() {}
+};
 
-    void onNotify(Direction dir)
+class RustSubscriber : public SwipeListener
+{
+public:
+    void onNotify(Direction dir) override
     {
-        std::cout << "[Subscriber " << name << "] が受信: "
+        std::cout << "Rust: "
+                  << (dir == Direction::Left ? "左" : "右") << "に動きました！" << std::endl;
+    }
+};
+
+class Rust2Subscriber : public SwipeListener
+{
+public:
+    void onNotify(Direction dir) override
+    {
+        std::cout << "Rust2: "
                   << (dir == Direction::Left ? "左" : "右") << "に動きました！" << std::endl;
     }
 };
@@ -24,14 +39,13 @@ public:
 class SwipeServer
 {
 private:
-    std::vector<MySubscriber *> subscribers;
+    std::vector<SwipeListener *> subscribers;
 
 public:
     // ポインタを渡す
-    void addSubscriber(MySubscriber *s)
+    void addSubscriber(SwipeListener *s)
     {
         subscribers.push_back(s);
-        std::cout << "サーバー: " << s->name << " が登録されました。" << std::endl;
     }
     void pushSwipe(Direction dir)
     {
@@ -47,8 +61,8 @@ public:
 int main(void)
 {
     SwipeServer server;
-    MySubscriber sub1("購読者1");
-    MySubscriber sub2("購読者2");
+    RustSubscriber sub1;
+    Rust2Subscriber sub2;
     // アドレスを渡す
     // int a = 10;
     // ポインタにはアドレスを渡しましょう
