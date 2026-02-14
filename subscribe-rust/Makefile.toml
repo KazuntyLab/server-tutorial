@@ -1,0 +1,22 @@
+[tasks.generate]
+description = "Cap'n Proto のコードを生成します"
+command = "capnp"
+args = ["compile", "-orust", "swipe.capnp"]
+
+[tasks.build]
+description = "コード生成とプロジェクトのビルドを行います"
+dependencies = ["generate"] # ビルド前に必ず生成を行う
+command = "cargo"
+args = ["build"]
+
+[tasks.run-server]
+description = "C++ サーバーをビルドして実行します（別ディレクトリにある場合）"
+script = [
+    "cd ../server-c++ && mkdir -p build && cd build && cmake .. && make && ./SwipeServer"
+]
+
+[tasks.dev]
+description = "これ一つで全部やる（生成・ビルド・実行）"
+dependencies = ["build"]
+command = "cargo"
+args = ["run"]
