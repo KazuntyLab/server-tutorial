@@ -1,3 +1,0 @@
-/Users/kazu/Desktop/code/13_server/swipe/build/CMakeFiles/SwipeServer.dir
-/Users/kazu/Desktop/code/13_server/swipe/build/CMakeFiles/edit_cache.dir
-/Users/kazu/Desktop/code/13_server/swipe/build/CMakeFiles/rebuild_cache.dir

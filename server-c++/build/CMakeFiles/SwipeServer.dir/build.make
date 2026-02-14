@@ -53,10 +53,10 @@ RM = /opt/homebrew/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/kazu/Desktop/code/13_server/swipe
+CMAKE_SOURCE_DIR = /Users/kazu/Desktop/code/13_server/swipe/server-c++
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/kazu/Desktop/code/13_server/swipe/build
+CMAKE_BINARY_DIR = /Users/kazu/Desktop/code/13_server/swipe/server-c++/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/SwipeServer.dir/depend.make
@@ -69,9 +69,9 @@ include CMakeFiles/SwipeServer.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/SwipeServer.dir/flags.make
 
-swipe.capnp.c++: /Users/kazu/Desktop/code/13_server/swipe/swipe.capnp
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/Users/kazu/Desktop/code/13_server/swipe/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Compiling Cap'n Proto schema swipe.capnp"
-	/usr/local/bin/capnp compile -o /usr/local/bin/capnpc-c++:. --src-prefix /Users/kazu/Desktop/code/13_server/swipe -I /Users/kazu/Desktop/code/13_server/swipe -I /usr/local/lib/cmake/CapnProto/../../../include /Users/kazu/Desktop/code/13_server/swipe/swipe.capnp
+swipe.capnp.c++: /Users/kazu/Desktop/code/13_server/swipe/server-c++/swipe.capnp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/Users/kazu/Desktop/code/13_server/swipe/server-c++/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Compiling Cap'n Proto schema swipe.capnp"
+	/usr/local/bin/capnp compile -o /usr/local/bin/capnpc-c++:. --src-prefix /Users/kazu/Desktop/code/13_server/swipe/server-c++ -I /Users/kazu/Desktop/code/13_server/swipe/server-c++ -I /usr/local/lib/cmake/CapnProto/../../../include /Users/kazu/Desktop/code/13_server/swipe/server-c++/swipe.capnp
 
 swipe.capnp.h: swipe.capnp.c++
 	@$(CMAKE_COMMAND) -E touch_nocreate swipe.capnp.h
@@ -80,32 +80,32 @@ CMakeFiles/SwipeServer.dir/codegen:
 .PHONY : CMakeFiles/SwipeServer.dir/codegen
 
 CMakeFiles/SwipeServer.dir/server.cpp.o: CMakeFiles/SwipeServer.dir/flags.make
-CMakeFiles/SwipeServer.dir/server.cpp.o: /Users/kazu/Desktop/code/13_server/swipe/server.cpp
+CMakeFiles/SwipeServer.dir/server.cpp.o: /Users/kazu/Desktop/code/13_server/swipe/server-c++/server.cpp
 CMakeFiles/SwipeServer.dir/server.cpp.o: CMakeFiles/SwipeServer.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/kazu/Desktop/code/13_server/swipe/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/SwipeServer.dir/server.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SwipeServer.dir/server.cpp.o -MF CMakeFiles/SwipeServer.dir/server.cpp.o.d -o CMakeFiles/SwipeServer.dir/server.cpp.o -c /Users/kazu/Desktop/code/13_server/swipe/server.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/kazu/Desktop/code/13_server/swipe/server-c++/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/SwipeServer.dir/server.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SwipeServer.dir/server.cpp.o -MF CMakeFiles/SwipeServer.dir/server.cpp.o.d -o CMakeFiles/SwipeServer.dir/server.cpp.o -c /Users/kazu/Desktop/code/13_server/swipe/server-c++/server.cpp
 
 CMakeFiles/SwipeServer.dir/server.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/SwipeServer.dir/server.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/kazu/Desktop/code/13_server/swipe/server.cpp > CMakeFiles/SwipeServer.dir/server.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/kazu/Desktop/code/13_server/swipe/server-c++/server.cpp > CMakeFiles/SwipeServer.dir/server.cpp.i
 
 CMakeFiles/SwipeServer.dir/server.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/SwipeServer.dir/server.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/kazu/Desktop/code/13_server/swipe/server.cpp -o CMakeFiles/SwipeServer.dir/server.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/kazu/Desktop/code/13_server/swipe/server-c++/server.cpp -o CMakeFiles/SwipeServer.dir/server.cpp.s
 
 CMakeFiles/SwipeServer.dir/swipe.capnp.c++.o: CMakeFiles/SwipeServer.dir/flags.make
 CMakeFiles/SwipeServer.dir/swipe.capnp.c++.o: swipe.capnp.c++
 CMakeFiles/SwipeServer.dir/swipe.capnp.c++.o: CMakeFiles/SwipeServer.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/kazu/Desktop/code/13_server/swipe/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/SwipeServer.dir/swipe.capnp.c++.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SwipeServer.dir/swipe.capnp.c++.o -MF CMakeFiles/SwipeServer.dir/swipe.capnp.c++.o.d -o CMakeFiles/SwipeServer.dir/swipe.capnp.c++.o -c /Users/kazu/Desktop/code/13_server/swipe/build/swipe.capnp.c++
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/kazu/Desktop/code/13_server/swipe/server-c++/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/SwipeServer.dir/swipe.capnp.c++.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SwipeServer.dir/swipe.capnp.c++.o -MF CMakeFiles/SwipeServer.dir/swipe.capnp.c++.o.d -o CMakeFiles/SwipeServer.dir/swipe.capnp.c++.o -c /Users/kazu/Desktop/code/13_server/swipe/server-c++/build/swipe.capnp.c++
 
 CMakeFiles/SwipeServer.dir/swipe.capnp.c++.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/SwipeServer.dir/swipe.capnp.c++.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/kazu/Desktop/code/13_server/swipe/build/swipe.capnp.c++ > CMakeFiles/SwipeServer.dir/swipe.capnp.c++.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/kazu/Desktop/code/13_server/swipe/server-c++/build/swipe.capnp.c++ > CMakeFiles/SwipeServer.dir/swipe.capnp.c++.i
 
 CMakeFiles/SwipeServer.dir/swipe.capnp.c++.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/SwipeServer.dir/swipe.capnp.c++.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/kazu/Desktop/code/13_server/swipe/build/swipe.capnp.c++ -o CMakeFiles/SwipeServer.dir/swipe.capnp.c++.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/kazu/Desktop/code/13_server/swipe/server-c++/build/swipe.capnp.c++ -o CMakeFiles/SwipeServer.dir/swipe.capnp.c++.s
 
 # Object files for target SwipeServer
 SwipeServer_OBJECTS = \
@@ -119,7 +119,7 @@ SwipeServer: CMakeFiles/SwipeServer.dir/server.cpp.o
 SwipeServer: CMakeFiles/SwipeServer.dir/swipe.capnp.c++.o
 SwipeServer: CMakeFiles/SwipeServer.dir/build.make
 SwipeServer: CMakeFiles/SwipeServer.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/kazu/Desktop/code/13_server/swipe/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable SwipeServer"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/kazu/Desktop/code/13_server/swipe/server-c++/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable SwipeServer"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/SwipeServer.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -132,6 +132,6 @@ CMakeFiles/SwipeServer.dir/clean:
 
 CMakeFiles/SwipeServer.dir/depend: swipe.capnp.c++
 CMakeFiles/SwipeServer.dir/depend: swipe.capnp.h
-	cd /Users/kazu/Desktop/code/13_server/swipe/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/kazu/Desktop/code/13_server/swipe /Users/kazu/Desktop/code/13_server/swipe /Users/kazu/Desktop/code/13_server/swipe/build /Users/kazu/Desktop/code/13_server/swipe/build /Users/kazu/Desktop/code/13_server/swipe/build/CMakeFiles/SwipeServer.dir/DependInfo.cmake "--color=$(COLOR)" SwipeServer
+	cd /Users/kazu/Desktop/code/13_server/swipe/server-c++/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/kazu/Desktop/code/13_server/swipe/server-c++ /Users/kazu/Desktop/code/13_server/swipe/server-c++ /Users/kazu/Desktop/code/13_server/swipe/server-c++/build /Users/kazu/Desktop/code/13_server/swipe/server-c++/build /Users/kazu/Desktop/code/13_server/swipe/server-c++/build/CMakeFiles/SwipeServer.dir/DependInfo.cmake "--color=$(COLOR)" SwipeServer
 .PHONY : CMakeFiles/SwipeServer.dir/depend
 

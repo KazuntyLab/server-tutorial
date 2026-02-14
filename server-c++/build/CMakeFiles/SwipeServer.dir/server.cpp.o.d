@@ -1,5 +1,5 @@
 CMakeFiles/SwipeServer.dir/server.cpp.o: \
-  /Users/kazu/Desktop/code/13_server/swipe/server.cpp \
+  /Users/kazu/Desktop/code/13_server/swipe/server-c++/server.cpp \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/iostream \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__config \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__config_site \

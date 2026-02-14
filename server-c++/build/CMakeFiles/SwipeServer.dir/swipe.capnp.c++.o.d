@@ -1,6 +1,6 @@
 CMakeFiles/SwipeServer.dir/swipe.capnp.c++.o: \
-  /Users/kazu/Desktop/code/13_server/swipe/build/swipe.capnp.c++ \
-  /Users/kazu/Desktop/code/13_server/swipe/build/swipe.capnp.h \
+  /Users/kazu/Desktop/code/13_server/swipe/server-c++/build/swipe.capnp.c++ \
+  /Users/kazu/Desktop/code/13_server/swipe/server-c++/build/swipe.capnp.h \
   /usr/local/include/capnp/generated-header-support.h \
   /usr/local/include/capnp/raw-schema.h \
   /usr/local/include/capnp/common.h \
