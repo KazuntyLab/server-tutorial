@@ -1,0 +1,2 @@
+# Hashes of file build rules.
+2ac6477fddd46890855de63c7401422f swipe.capnp.c++

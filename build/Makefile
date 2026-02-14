@@ -153,6 +153,30 @@ server.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/SwipeServer.dir/build.make CMakeFiles/SwipeServer.dir/server.cpp.s
 .PHONY : server.cpp.s
 
+swipe.capnp.o: swipe.capnp.c++.o
+.PHONY : swipe.capnp.o
+
+# target to build an object file
+swipe.capnp.c++.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SwipeServer.dir/build.make CMakeFiles/SwipeServer.dir/swipe.capnp.c++.o
+.PHONY : swipe.capnp.c++.o
+
+swipe.capnp.i: swipe.capnp.c++.i
+.PHONY : swipe.capnp.i
+
+# target to preprocess a source file
+swipe.capnp.c++.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SwipeServer.dir/build.make CMakeFiles/SwipeServer.dir/swipe.capnp.c++.i
+.PHONY : swipe.capnp.c++.i
+
+swipe.capnp.s: swipe.capnp.c++.s
+.PHONY : swipe.capnp.s
+
+# target to generate assembly for a file
+swipe.capnp.c++.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SwipeServer.dir/build.make CMakeFiles/SwipeServer.dir/swipe.capnp.c++.s
+.PHONY : swipe.capnp.c++.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -165,6 +189,9 @@ help:
 	@echo "... server.o"
 	@echo "... server.i"
 	@echo "... server.s"
+	@echo "... swipe.capnp.o"
+	@echo "... swipe.capnp.i"
+	@echo "... swipe.capnp.s"
 .PHONY : help
 
 
