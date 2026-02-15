@@ -29,35 +29,43 @@ impl swipe_capnp::swipe_listener::Server for SwipeListenerImpl {
     }
 }
 
-#[tokio::main]
+#[tokio::main(flavor = "current_thread")]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
     // Box<dyn std::error::Error>でToSocketAddrs、TcpStream、capnp::Errorのエラーをまとめて扱う
     let addr = "127.0.0.1:9000".to_socket_addrs()?.next().unwrap();
-    println!("[Rust] C++サーバー ({}) に接続中...", addr);
+    println!("[Rust-Subscribe] C++サーバー ({}) に接続中...", addr);
 
     // ?でエラーが発生したら、Boxでエラーを返してくれる
     let stream = TcpStream::connect(&addr).await?;
     let (reader, writer) = tokio_util::compat::TokioAsyncReadCompatExt::compat(stream).split();
 
-    let network = twoparty::VatNetwork::new(
-        reader,
-        writer,
-        rpc_twoparty_capnp::Side::Client,
-        Default::default(),
-    );
-    let mut rpc_system = RpcSystem::new(Box::new(network), None);
+    let local = tokio::task::LocalSet::new();
+    local
+        .run_until(async move {
+            let network = twoparty::VatNetwork::new(
+                reader,
+                writer,
+                rpc_twoparty_capnp::Side::Client,
+                Default::default(),
+            );
+            let mut rpc_system = RpcSystem::new(Box::new(network), None);
 
-    let client: swipe_capnp::swipe_service::Client =
-        rpc_system.bootstrap(rpc_twoparty_capnp::Side::Server);
-    let listener = capnp_rpc::new_client(SwipeListenerImpl);
-    let mut request = client.subscribe_request();
-    request.get().set_listener(listener);
+            let client: swipe_capnp::swipe_service::Client =
+                rpc_system.bootstrap(rpc_twoparty_capnp::Side::Server);
+            tokio::task::spawn_local(rpc_system.map(|_| ()));
 
-    println!("[Rust] サーバーに登録完了。待機します...");
-    let _ = request.send().promise.await?;
-    tokio::task::spawn_local(rpc_system.map(|_| ()));
+            let listener = capnp_rpc::new_client(SwipeListenerImpl);
+            let mut request = client.subscribe_request();
+            request.get().set_listener(listener);
 
-    futures::future::pending::<()>().await;
+            println!("[Rust-Subscribe] サーバーに登録リクエストを送信中...");
+            let _ = request.send().promise.await?;
+            println!("[Rust-Subscribe] サーバーに登録完了。通知を待機します...");
+
+            futures::future::pending::<()>().await;
+            Ok::<(), Box<dyn std::error::Error>>(())
+        })
+        .await?;
     Ok(())
 }
 

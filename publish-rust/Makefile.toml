@@ -1,0 +1,14 @@
+[tasks.generate]
+description = "Cap'n Proto のコードを src/ 内に生成します"
+command = "capnp"
+args = ["compile", "-orust:src", "swipe.capnp"]
+
+[tasks.build]
+dependencies = ["generate"]
+command = "cargo"
+args = ["build"]
+
+[tasks.dev]
+dependencies = ["build"]
+command = "cargo"
+args = ["run"]

@@ -1,2 +1,3 @@
-subscribe-rust/target/
+subscribe-rust/target
+publish-rust/target
 server-c++/build
